@@ -7,9 +7,10 @@
 - **보안**: 종합 보안 시스템 적용 (해킹방지, 캡처방지, 사용량 제한)
 
 ## 🔗 접속 정보
-- **개발 환경**: https://3000-i3g87wpy5vz32rhi6bkty-6532622b.e2b.dev
-- **프로덕션 (배포 후)**: https://xivix-blog-automation.pages.dev
-- **GitHub**: (설정 후 업데이트)
+- **🌐 프로덕션**: https://239d5ae1.xivix-blog-automation.pages.dev
+- **📱 메인 도메인**: https://xivix-blog-automation.pages.dev  
+- **📂 GitHub**: https://github.com/ikjoobang/xivix-blog-automation
+- **⚙️ 개발 환경**: https://3000-i3g87wpy5vz32rhi6bkty-6532622b.e2b.dev
 
 ## ✅ 완성된 핵심 기능
 
