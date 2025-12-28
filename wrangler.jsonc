@@ -3,5 +3,13 @@
   "name": "xivix-blog-automation",
   "compatibility_date": "2024-01-01",
   "compatibility_flags": ["nodejs_compat"],
-  "pages_build_output_dir": "./dist"
+  "pages_build_output_dir": "./dist",
+  
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "webapp-production",
+      "database_id": "8805fe70-936c-4e83-bb3f-9884ccc0c9ed"
+    }
+  ]
 }
