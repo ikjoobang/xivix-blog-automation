@@ -1,0 +1,168 @@
+/* =========================================
+   보안 기능 - 캡처방지, 복붙방지, 키보드방지
+   ========================================= */
+
+/* 캡처 방지 */
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  /* 우클릭 방지 */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  /* 드래그 방지 */
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+/* 결과물 영역만 선택 가능하게 */
+.result-copyable {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
+
+/* 입력 필드는 선택 가능 */
+input, textarea, .editable {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
+
+/* API 키 입력 필드 보안 */
+.api-key-input {
+  background: #f9f9f9;
+  color: #333;
+  font-family: monospace;
+  letter-spacing: 2px;
+}
+
+.api-key-input:focus {
+  background: #fff;
+  border: 2px solid #03C75A;
+  outline: none;
+}
+
+/* 숨겨진 API 키 표시 */
+.api-key-masked {
+  background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
+              linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
+              linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
+              linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+  background-size: 4px 4px;
+  background-position: 0 0, 0 2px, 2px -2px, -2px 0px;
+}
+
+/* 로딩 상태 */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #03C75A;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 사용량 제한 표시 */
+.usage-limit-bar {
+  background: linear-gradient(90deg, #03C75A 0%, #FF6B35 70%, #dc3545 100%);
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.usage-progress {
+  background: rgba(255,255,255,0.3);
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+/* 복사 버튼 스타일 */
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #03C75A;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.copy-btn:hover {
+  background: #028a4a;
+  transform: scale(1.05);
+}
+
+.copy-btn.copied {
+  background: #28a745;
+  animation: pulse 0.5s ease;
+}
+
+/* 에러 메시지 스타일 */
+.error-message {
+  background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+  color: #721c24;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 8px 0;
+  border: 1px solid #f5c6cb;
+  font-weight: 500;
+}
+
+.success-message {
+  background: linear-gradient(135deg, #51cf66, #69db7c);
+  color: #155724;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 8px 0;
+  border: 1px solid #c3e6cb;
+  font-weight: 500;
+}
+
+/* 워터마크 방지 */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  pointer-events: none;
+  z-index: -1;
+}

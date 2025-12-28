@@ -1,0 +1,21 @@
+# .dev.vars.example - 로컬 개발용 환경변수 템플릿
+# 실제 사용 시: 이 파일을 .dev.vars로 복사하고 실제 값으로 채우세요
+# 주의: .dev.vars는 .gitignore에 포함되어 커밋되지 않습니다
+
+# Google OAuth 2.0 설정
+GOOGLE_CLIENT_ID=your-google-client-id.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+OAUTH_REDIRECT_URI=http://localhost:3000/auth/callback
+
+# Google API 설정
+GOOGLE_SHEETS_ID=your-google-sheets-id
+GOOGLE_DRIVE_FOLDER_ID=your-google-drive-folder-id
+GOOGLE_GENAI_API_KEY=your-gemini-api-key
+
+# 인증/보안 설정
+AUTH_SECRET=your-jwt-signing-secret-min-32-chars
+ENCRYPTION_KEY=your-encryption-key-for-tokens-32chars
+
+# 기타 설정
+BASE_URL=http://localhost:3000
+NODE_ENV=development

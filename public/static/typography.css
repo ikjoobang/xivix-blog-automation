@@ -1,0 +1,237 @@
+/* =========================================
+   XIΛIX Blog Series - Typography & Layout System
+   XIΛIX_Naver Blog Series Step_07
+   ========================================= */
+
+/* 기본 타이포그래피 설정 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #333333;
+  word-break: keep-all; /* 한글 줄바꿈 최적화 */
+  margin: 0;
+}
+
+/* 모바일 스타일 (Mobile First) */
+@media (max-width: 768px) {
+  body {
+    font-size: 17px;
+    line-height: 1.65;
+    letter-spacing: -0.02em;
+    padding: 0 16px;
+  }
+  
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  
+  /* 모바일 카드 간격 조정 */
+  .mobile-optimized {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  /* 모바일 텍스트 크기 조정 */
+  h1 { font-size: 24px; line-height: 1.4; }
+  h2 { font-size: 20px; line-height: 1.4; }
+  h3 { font-size: 18px; line-height: 1.4; }
+  
+  /* 모바일 버튼 크기 */
+  .mobile-btn {
+    min-height: 48px;
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+}
+
+/* PC 스타일 (Desktop) - 꽉찬 레이아웃 */
+@media (min-width: 769px) {
+  body {
+    font-size: 16px;
+    line-height: 1.55;
+    letter-spacing: -0.01em;
+    width: 100%;          /* PC 화면 전체 폭 사용 */
+    margin: 0;            /* 마진 제거 */
+    padding: 0 20px;      /* 최소한의 좌우 여백 */
+  }
+  
+  .container {
+    max-width: 100%;      /* 전체 폭 사용 */
+    width: 100%;
+  }
+  
+  /* PC 전용 그리드 레이아웃 */
+  .pc-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  
+  .pc-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  
+  .pc-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+}
+
+/* =========================================
+   Visual Hierarchy Elements
+   ========================================= */
+
+/* 리스트 공통 스타일 제거 */
+ul.ordered-list, ul.emphasis-list, ul.check-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.ordered-list li, ul.emphasis-list li, ul.check-list li {
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 0;
+}
+
+/* 순서 리스트 - ❶ ❷ ❃ 스타일 */
+.ordered-list li::before {
+  font-weight: 700;
+  color: #03C75A;
+  margin-right: 8px;
+}
+
+.ordered-list li:nth-child(1)::before { content: "❶ "; }
+.ordered-list li:nth-child(2)::before { content: "❷ "; }
+.ordered-list li:nth-child(3)::before { content: "❸ "; }
+.ordered-list li:nth-child(4)::before { content: "❹ "; }
+.ordered-list li:nth-child(5)::before { content: "❺ "; }
+.ordered-list li:nth-child(6)::before { content: "❻ "; }
+
+/* 강조 리스트 - ■ 스타일 */
+.emphasis-list li::before {
+  content: "■ ";
+  font-weight: 700;
+  color: #FF6B35;
+  margin-right: 8px;
+}
+
+/* 체크 리스트 - ✔️ 스타일 */  
+.check-list li::before {
+  content: "✔️ ";
+  margin-right: 8px;
+}
+
+/* 링크 스타일 */
+a {
+  color: #03C75A;
+  text-decoration: none;
+  font-weight: 500;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a.secondary {
+  color: #FF6B35;
+}
+
+/* 핵심 메시지 강조 */
+strong, b {
+  font-weight: 700;
+  color: #000;
+}
+
+/* 브랜드 컬러 */
+.brand-primary { color: #03C75A; }
+.brand-secondary { color: #FF6B35; }
+.brand-accent { color: #0066FF; }
+
+/* =========================================
+   XIΛIX 브랜딩 요소
+   ========================================= */
+
+.xivix-brand {
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+  color: #03C75A;
+  letter-spacing: 0.5px;
+}
+
+.xivix-footer {
+  background: linear-gradient(135deg, #03C75A 0%, #0066FF 100%);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.xivix-footer a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.xivix-footer a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+   Dark Mode Support
+   ========================================= */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+
+  strong, b {
+    color: #fff;
+  }
+
+  a {
+    color: #05d662; /* 다크모드에서 시인성 조정 */
+  }
+  
+  .xivix-footer {
+    background: linear-gradient(135deg, #05d662 0%, #0080FF 100%);
+  }
+}
+
+/* =========================================
+   모바일 최적화 유틸리티
+   ========================================= */
+
+/* 모바일에서 숨김 */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+/* PC에서 숨김 */
+@media (min-width: 769px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+/* 터치 친화적 버튼 */
+@media (max-width: 768px) {
+  button, .btn {
+    min-height: 48px;
+    font-size: 16px;
+    touch-action: manipulation;
+  }
+}
+
+/* 모바일 카드 스타일 */
+@media (max-width: 768px) {
+  .card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 16px;
+  }
+}
